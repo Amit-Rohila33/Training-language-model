@@ -88,3 +88,12 @@ Content-Type: application/json
 The server will respond with the generated text in the response JSON, where the input text has undergone a complex random transformation.
 
 
+# How to use the test.py
+
+To use the stress testing script:
+
+- Create the test.py file in the root directory of your repository and paste the provided code.
+- Make sure your FastAPI server is running on http://localhost:8000.
+- Run the test.py script using python test.py.
+- The script will create multiple threads and send simultaneous requests to the FastAPI server's /generate endpoint.
+- Each thread will print the JSON response received from the server.

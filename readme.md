@@ -19,20 +19,20 @@ pip install torch transformers tqdm
 
 1. Clone the repository:
 
-git clone https://github.com/Amit-Rohila33/language-model-training.git
+- git clone https://github.com/Amit-Rohila33/language-model-training.git
 
 2. Change to the project directory:
 
-cd language-model-training
+- cd language-model-training
 
 
 3. Create a text file for training data:
 
-Edit the file `random_file.txt` and replace the content with your own text data. Each line in the file represents a separate input instance.
+- Edit the file `random_file.txt` and replace the content with your own text data. Each line in the file represents a separate input instance.
 
 4. Run the training script:
 
-python trainer.py
+- python trainer.py
 
 
 The script will train the language model on the provided data. The training progress will be displayed, showing the average loss after each epoch. Once training is completed, the model weights will be saved in the file specified by `save_location`.
@@ -52,10 +52,10 @@ This project uses the `GPT2LMHeadModel` and `GPT2Config` classes from the Huggin
 from transformers import GPT2LMHeadModel
 
 1. Specify the path to the saved model weights
-save_location = "model_weights.pth"
+- save_location = "model_weights.pth"
 
 2. Load the model with the saved weights
-model = GPT2LMHeadModel.from_pretrained(save_location)
+- model = GPT2LMHeadModel.from_pretrained(save_location)
 
 Use the loaded model for inference or further training
 

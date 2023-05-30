@@ -61,3 +61,30 @@ Use the loaded model for inference or further training
 
 
 
+# Language Model Inference with FastAPI
+
+The **server.py** script provides a FastAPI server for generating text using the trained language model.
+
+- Ensure you have trained the language model and saved the model weights in the specified location.
+
+- In the root directory of the repository, you will find a file called server.py.
+
+#### Run the FastAPI server:
+
+- "uvicorn server:app --reload"
+The server will start running on http://localhost:8000 or http://127.0.0.1:8000.
+
+- To generate text, send a POST request to http://localhost:8000/generate with a JSON payload containing the text field.
+For example:
+
+POST http://localhost:8000/generate
+
+Content-Type: application/json
+
+{
+  "text": "This is an example text."
+}
+
+The server will respond with the generated text in the response JSON, where the input text has undergone a complex random transformation.
+
+

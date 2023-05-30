@@ -19,20 +19,20 @@ pip install torch transformers tqdm
 
 1. Clone the repository:
 
-git clone https://github.com/Amit-Rohila33/language-model-training.git
+- git clone https://github.com/Amit-Rohila33/language-model-training.git
 
 2. Change to the project directory:
 
-cd language-model-training
+- cd language-model-training
 
 
 3. Create a text file for training data:
 
-Edit the file `random_file.txt` and replace the content with your own text data. Each line in the file represents a separate input instance.
+- Edit the file `random_file.txt` and replace the content with your own text data. Each line in the file represents a separate input instance.
 
 4. Run the training script:
 
-python trainer.py
+- python trainer.py
 
 
 The script will train the language model on the provided data. The training progress will be displayed, showing the average loss after each epoch. Once training is completed, the model weights will be saved in the file specified by `save_location`.
@@ -52,12 +52,39 @@ This project uses the `GPT2LMHeadModel` and `GPT2Config` classes from the Huggin
 from transformers import GPT2LMHeadModel
 
 1. Specify the path to the saved model weights
-save_location = "model_weights.pth"
+- save_location = "model_weights.pth"
 
 2. Load the model with the saved weights
-model = GPT2LMHeadModel.from_pretrained(save_location)
+- model = GPT2LMHeadModel.from_pretrained(save_location)
 
 Use the loaded model for inference or further training
 
+
+
+# Language Model Inference with FastAPI
+
+The **server.py** script provides a FastAPI server for generating text using the trained language model.
+
+- Ensure you have trained the language model and saved the model weights in the specified location.
+
+- In the root directory of the repository, you will find a file called server.py.
+
+#### Run the FastAPI server:
+
+- "uvicorn server:app --reload"
+The server will start running on http://localhost:8000 or http://127.0.0.1:8000.
+
+- To generate text, send a POST request to http://localhost:8000/generate with a JSON payload containing the text field.
+For example:
+
+POST http://localhost:8000/generate
+
+Content-Type: application/json
+
+{
+  "text": "This is an example text."
+}
+
+The server will respond with the generated text in the response JSON, where the input text has undergone a complex random transformation.
 
 
